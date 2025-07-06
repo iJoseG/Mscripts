@@ -25,7 +25,9 @@ fi
 
 # Verificar si hay cambios por hacer
 if [[ -z $(git status --porcelain) ]]; then
+    echo " "
     echo "No hay cambios por realizar. Saliendo..."
+    echo " "
     exit 0
 fi
 
@@ -51,3 +53,4 @@ git status
 
 echo " "
 echo "✅ Cambios subidos exitosamente a la rama '$nrama'."
+echo " "

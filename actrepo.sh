@@ -48,9 +48,5 @@ nrama="$(git branch --show-current)"
 git push origin "$nrama"
 
 echo " "
-
-git status
-
-echo " "
 echo -e "\n${GREEN}✔ Cambios subidos exitosamente a la rama '$nrama'.${RESET}"
 echo " "

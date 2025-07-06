@@ -18,7 +18,7 @@ Un script rápido y automatizado para instalar **Zsh + Oh My Zsh + plugins útil
 
 ## 📥 Instalación rápida
 
-Puedes ejecutarlo directamente desde la terminal con:
+Puedes ejecutarlo directamente desde la terminal de Arch con:
 
 ```bash
-bash <(curl -s https://github.com/iJoseG/Mscripts.git)
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzsh.sh)

@@ -31,6 +31,8 @@ if [[ -z $(git status --porcelain) ]]; then
     exit 0
 fi
 
+git config --global credential.helper store
+
 # Observar el estado del repositorio
 git status
 

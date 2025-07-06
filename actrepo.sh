@@ -24,7 +24,7 @@ read -rp "Digite mensaje descriptivo para commit: " messss
 git commit -m "$messss"
 
 # Obtenemos branch y publicamos cambios
-nrama="$(git branch)"
+nrama="$(git branch --show-current)"
 git push origin $nrama
 
 echo " "

@@ -9,7 +9,7 @@ ruta_proyecto="/home/jguerra/Documents/Mscripts"
 cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyecto"; exit 1; }
 
 cd /home/jguerra/Documents/Mscripts
-git status
+
 echo "Ahora estás en: $(pwd)"
 
 if [[ -z $(git status --porcelain) ]]; then

@@ -22,3 +22,10 @@ Puedes ejecutarlo directamente desde la terminal de Arch con:
 
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzsh.sh)
+
+## 📥 Para actualizar tu repositorio
+
+Puedes ejecutarlo directamente desde la terminal de Arch con:
+
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)

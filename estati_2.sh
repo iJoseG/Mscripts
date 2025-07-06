@@ -34,10 +34,6 @@ free -h | awk '/Mem:/ {printf "Total: %s\nUsada: %s\nLibre: %s\n", $2, $3, $4}'
 print_section "💾 Espacio en disco (/):"
 df -h / | awk 'NR==2 {printf "Total: %s\nUsado: %s\nLibre: %s\n", $2, $3, $4}'
 
-# IP
-print_section "🌐 Dirección IP:"
-ip a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | cut -d/ -f1
-
 # Temperatura
 print_section "🌡️ Temperatura de la CPU:"
 sensors | grep -E 'Core|Package' || echo "⚠️ Ejecuta: sudo sensors-detect"

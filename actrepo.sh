@@ -25,7 +25,7 @@ git commit -m "$messss"
 
 # Obtenemos branch y publicamos cambios
 nrama="$(git branch --show-current)"
-git push origin $nrama
+git push origin "$nrama"
 
 echo " "
 echo " "

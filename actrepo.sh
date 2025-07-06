@@ -2,7 +2,6 @@
 
 #   Este script actualizará los archivos de tu repositorio en github
 
-
 # La ruta del proyecto
 ruta_proyecto="/home/jguerra/Documents/Mscripts"
 
@@ -24,7 +23,7 @@ git add .
 read -rp "Digite mensaje descriptivo para commit: " messss
 git commit -m "$messss"
 
-# Obtenemos branch
+# Obtenemos branch y publicamos cambios
 nrama="$(git branch)"
 git push origin $nrama
 

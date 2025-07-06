@@ -32,7 +32,7 @@ linea2="source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 linea3='alias deit="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/datetoday.sh)"'
 
-linea4='alias repoact="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"'
+linea4='alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"'
 
 # Agregar cada línea si no existe
 for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4"; do

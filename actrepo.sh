@@ -11,7 +11,6 @@ cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyect
 cd /home/jguerra/Documents/Mscripts
 
 if [[ -z $(git status --porcelain) ]]; then
-    echo " "
     echo "No hay cambios para hacer commit. Saliendo..."
     exit 1
 fi

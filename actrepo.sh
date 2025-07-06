@@ -33,3 +33,7 @@ echo " "
 
 git status
 
+echo " "
+echo "✅ Cambios subidos exitosamente a la rama '$nrama'."
+
+

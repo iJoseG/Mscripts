@@ -1,0 +1,29 @@
+
+
+#!/bin/bash
+
+# Carpeta de origen
+origen="/home/jguerra/Documents/Mscripts"
+
+# Carpeta de destino
+destino="/home/jguerra/Backup"
+
+# Fecha actual en formato Día-Mes-Año_Hora-Minuto-Segundo
+fecha=$(date +%d-%m-%y_%H-%M-%S)
+
+# Nombre del archivo comprimido
+archivo_respaldo="respaldo_$fecha.tar.gz"
+
+# Crear carpeta de respaldo si no existe
+mkdir -p "$destino"
+
+echo $origen
+echo $destino
+echo $fecha
+echo $archivo_respaldo
+
+# Crear el archivo comprimido
+tar -czf "$destino/$archivo_respaldo" -C "$origen" .
+
+echo "Respaldo creado exitosamente en $destino/$archivo_respaldo"
+

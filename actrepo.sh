@@ -25,7 +25,6 @@ fi
 
 # Verificar si hay cambios por hacer
 if [[ -z $(git status --porcelain) ]]; then
-    echo " "
     echo "No hay cambios por realizar. Saliendo..."
     echo " "
     exit 0

@@ -2,6 +2,15 @@
 
 # Este script actualizará los archivos de tu repositorio en GitHub
 
+echo " "
+echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
+echo " "
+echo " "
+echo "      ACTUALIZANDO REPOSITORIO by jguerra"
+echo " "
+echo " "
+echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
+
 # La ruta del proyecto donde está configurado git
 ruta_proyecto="/home/jguerra/Documents/Mscripts"
 

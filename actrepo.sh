@@ -9,7 +9,7 @@ cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyect
 
 # Verificar si es un repositorio git válido
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-    echo "❌ Error: Esta carpeta no es un repositorio de Git."
+    echo "Error: Esta carpeta no es un repositorio de Git."
     exit 1
 fi
 

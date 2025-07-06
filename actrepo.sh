@@ -2,6 +2,13 @@
 
 # Este script actualizará los archivos de tu repositorio en GitHub
 
+# Colores ANSI
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+CYAN="\033[1;36m"
+YELLOW="\033[1;33m"
+RESET="\033[0m"
+
 echo ""
 echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
 echo " "
@@ -51,5 +58,5 @@ echo " "
 git status
 
 echo " "
-echo -e "\n${GREEN}✔ Cambios subidos exitosamente a la rama .${RESET}"
+echo -e "\n${GREEN}✔ Cambios subidos exitosamente a la rama '$nrama'.${RESET}"
 echo " "

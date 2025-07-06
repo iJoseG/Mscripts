@@ -51,5 +51,5 @@ echo " "
 git status
 
 echo " "
-echo "✅ Cambios subidos exitosamente a la rama '$nrama'."
+echo -e "\n${GREEN}✔ Cambios subidos exitosamente a la rama .${RESET}"
 echo " "

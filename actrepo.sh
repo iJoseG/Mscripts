@@ -26,7 +26,7 @@ fi
 
 # Verificar si hay cambios por hacer
 if [[ -z $(git status --porcelain) ]]; then
-    echo "${GREEN}No hay cambios por realizar. Saliendo... ${RESET}\N"
+    echo -e "${GREEN}No hay cambios por realizar. Saliendo... ${RESET}\N"
     exit 0
 fi
 

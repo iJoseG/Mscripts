@@ -1,12 +1,19 @@
 #!/bin/bash
 
-#   Este script actualizará los archivos de tu repositorio en github
+# Este script actualizará los archivos de tu repositorio en GitHub
 
 # La ruta del proyecto donde está configurado git
 ruta_proyecto="/home/jguerra/Documents/Mscripts"
 
 cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyecto"; exit 1; }
 
+# Verificar si es un repositorio git válido
+if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+    echo "❌ Error: Esta carpeta no es un repositorio de Git."
+    exit 1
+fi
+
+# Verificar si hay cambios por hacer
 if [[ -z $(git status --porcelain) ]]; then
     echo "No hay cambios por realizar. Saliendo..."
     exit 0
@@ -14,9 +21,8 @@ fi
 
 # Observar el estado del repositorio
 git status
-# echo "Ahora estás en: $(pwd)"
 
-# Agregar los archivos que no estén actualizados
+# Agregar los archivos modificados
 git add .
 
 # Recibir mensaje para ejecutar commit
@@ -35,5 +41,3 @@ git status
 
 echo " "
 echo "✅ Cambios subidos exitosamente a la rama '$nrama'."
-
-

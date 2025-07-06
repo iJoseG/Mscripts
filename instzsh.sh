@@ -9,7 +9,7 @@ echo " "
 echo " "
 echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
 
-sleep 2
+sleep 1
 echo " "
 # Instalar paquetes base (descomenta si es necesario)
 sudo pacman -Syu
@@ -26,12 +26,16 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 echo " "
 
+linea0=" "
 linea1="source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 linea2="source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-linea3='alias datet="~/Documents/Mscripts/datetoday.sh"'
+
+linea3='alias deit="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/datetoday.sh)"'
+
+linea4='alias repoact="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"'
 
 # Agregar cada línea si no existe
-for linea in "$linea1" "$linea2" "$linea3"; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"

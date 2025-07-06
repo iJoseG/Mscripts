@@ -26,3 +26,5 @@ nrama="$(git branch)"
 
 git push origin main
 
+git status
+

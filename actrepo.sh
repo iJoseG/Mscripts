@@ -14,7 +14,7 @@ echo " "
 
 # La ruta del proyecto donde está configurado git
 ruta_proyecto="$(pwd)"
-echo "$ruta_proyecto"
+
 cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyecto"; exit 1; }
 
 # Verificar si es un repositorio git válido

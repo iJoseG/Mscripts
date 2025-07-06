@@ -8,8 +8,6 @@ ruta_proyecto="/home/jguerra/Documents/Mscripts"
 
 cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyecto"; exit 1; }
 
-cd /home/jguerra/Documents/Mscripts
-
 if [[ -z $(git status --porcelain) ]]; then
     echo "No hay cambios para hacer commit. Saliendo..."
     exit 1

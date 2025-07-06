@@ -9,31 +9,24 @@ CYAN="\033[1;36m"
 YELLOW="\033[1;33m"
 RESET="\033[0m"
 
-echo ""
-echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
-echo " "
-echo " "
-echo "      ACTUALIZANDO REPOSITORIO by jguerra"
-echo " "
-echo " "
-echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
-echo " "
+echo -e "\n${CYAN}= o = o = o = o = o = o = o = o = o = o = o = o = o ="
+echo -e "\n      ACTUALIZANDO REPOSITORIO by jguerra"
+echo -e "\n= o = o = o = o = o = o = o = o = o = o = o = o = o =${RESET}\n"
 
 # La ruta del proyecto donde está configurado git
 ruta_proyecto="$(pwd)"
 
-cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyecto"; exit 1; }
+cd "$ruta_proyecto" || { echo -e "${RED}Error: no se pudo acceder a la ruta $ruta_proyecto ${RESET}"; exit 1; }
 
 # Verificar si es un repositorio git válido
 if ! git rev-parse --is-inside-work-tree &>/dev/null; then
-    echo "Error: Esta carpeta no es un repositorio de Git."
+    echo -e "${RED}Error: Esta carpeta no es un repositorio de Git.${RESET}"
     exit 1
 fi
 
 # Verificar si hay cambios por hacer
 if [[ -z $(git status --porcelain) ]]; then
-    echo "No hay cambios por realizar. Saliendo..."
-    echo " "
+    echo "${GREEN}No hay cambios por realizar. Saliendo... ${RESET}\N"
     exit 0
 fi
 
@@ -44,7 +37,8 @@ git status
 git add .
 
 # Recibir mensaje para ejecutar commit
-read -rp "Digite mensaje descriptivo para commit: " messss
+echo -e "${YELLOW}Digite mensaje descriptivo para commit${RESET}"
+read -rp ": " messss
 git commit -m "$messss"
 
 echo " "

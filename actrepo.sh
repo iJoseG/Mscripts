@@ -42,7 +42,7 @@ read -rp ": " messss
 git commit -m "$messss"
 
 echo " "
-echo -e "${YELLOW} Actualizando Repositorios ${RESET}"
+echo -e "${YELLOW}Actualizando Repositorios ${RESET}"
 # Obtenemos branch y publicamos cambios
 nrama="$(git branch --show-current)"
 git push origin "$nrama"

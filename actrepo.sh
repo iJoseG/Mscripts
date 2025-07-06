@@ -24,5 +24,5 @@ git commit -m "$messss"
 
 nrama="$(git branch)"
 
-git push origin "$nrama"
+git push origin main
 

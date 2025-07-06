@@ -23,6 +23,12 @@ Puedes ejecutarlo directamente desde la terminal de Arch con:
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzsh.sh)
 ```
+Puedes ejecutarlo directamente desde la terminal de Debian, Ubuntu, Linux Mint con:
+
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instshub.sh)
+```
+
 ## 📥 Para actualizar tu repositorio
 
 Puedes ejecutarlo directamente desde la terminal de Arch con:
@@ -30,3 +36,5 @@ Puedes ejecutarlo directamente desde la terminal de Arch con:
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)
 ```
+
+

@@ -9,7 +9,7 @@ cd "$ruta_proyecto" || { echo "Error: no se pudo acceder a la ruta $ruta_proyect
 
 if [[ -z $(git status --porcelain) ]]; then
     echo "No hay cambios por realizar. Saliendo..."
-    exit 1
+    exit 0
 fi
 
 # Observar el estado del repositorio
@@ -19,7 +19,7 @@ git status
 # Agregar los archivos que no estén actualizados
 git add .
 
-# Recivir mensaje para ejecutar commit
+# Recibir mensaje para ejecutar commit
 read -rp "Digite mensaje descriptivo para commit: " messss
 git commit -m "$messss"
 

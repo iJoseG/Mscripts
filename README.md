@@ -31,7 +31,7 @@ bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/mai
 
 ## 📥 Para actualizar tu repositorio
 
-Puedes ejecutarlo directamente desde la terminal de Arch con:
+Puedes ejecutarlo directamente desde la terminal con:
 
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)

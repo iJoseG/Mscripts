@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S wget
+pacman -S wget xorg-xwayland
 
 wget  https://www.mathworks.com/mpm/glnxa64/mpm
 

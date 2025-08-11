@@ -18,12 +18,16 @@ sudo pacman -Syu
 # Actualizar e instalar Zsh
 sudo pacman -S --noconfirm zsh git curl
 
+chsh -s /bin/zsh
+
 echo " "
 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo " "
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 echo " "
 
 linea0=" "
@@ -34,8 +38,12 @@ linea3='alias deit="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Msc
 
 linea4='alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"'
 
+linea5='alias ll="ls -la"'
+
+linea6='ZSH_THEME="powerlevel10k/powerlevel10k"'
+
 # Agregar cada línea si no existe
-for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4"; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"
@@ -44,6 +52,8 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4"; do
     fi
     echo " "
 done
+
+echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
 
 zsh
 #zsh $(source ~/.zshrc)

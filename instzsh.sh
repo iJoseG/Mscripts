@@ -27,8 +27,6 @@ RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/
 echo " "
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 
 echo " "
 
 linea0=" "
@@ -57,4 +55,7 @@ done
 echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
 
 zsh
+
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 
+
 #zsh $(source ~/.zshrc)

@@ -28,7 +28,7 @@ echo " "
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 
 echo " "
 
 linea0=" "
@@ -46,7 +46,7 @@ linea6='ZSH_THEME="powerlevel10k/powerlevel10k"'
 
 
 # Agregar cada línea si no existe
-for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5"; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"
@@ -57,8 +57,6 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5"; do
 done
 
 echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
-
-sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
 zsh
 #zsh $(source ~/.zshrc)

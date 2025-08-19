@@ -46,7 +46,7 @@ linea6='ZSH_THEME="powerlevel10k/powerlevel10k"'
 
 
 # Agregar cada línea si no existe
-for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6"; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"

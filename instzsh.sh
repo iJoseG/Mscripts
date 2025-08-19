@@ -21,6 +21,7 @@ echo " "
 chsh -s /bin/zsh
 
 echo " "
+
 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo " "
@@ -42,6 +43,8 @@ linea5='alias ll="ls -la"'
 
 linea6='ZSH_THEME="powerlevel10k/powerlevel10k"'
 
+
+
 # Agregar cada línea si no existe
 for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
@@ -55,5 +58,7 @@ done
 
 echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
 
+sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
+
 zsh
-#zsh $(source ~/.zshrc)
+zsh $(source ~/.zshrc)

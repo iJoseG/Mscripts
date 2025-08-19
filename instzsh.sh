@@ -12,11 +12,11 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
 sleep 1
 echo " "
 # Instalar paquetes base (descomenta si es necesario)
-sudo pacman -Syu
+# sudo pacman -Syu
 # pacman -S git zsh nano vim less curl
 
 # Actualizar e instalar Zsh
-sudo pacman -S --noconfirm zsh git curl
+# sudo pacman -S --noconfirm zsh git curl
 
 chsh -s /bin/zsh
 

@@ -61,4 +61,4 @@ echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
 sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
 zsh
-zsh $(source ~/.zshrc)
+#zsh $(source ~/.zshrc)

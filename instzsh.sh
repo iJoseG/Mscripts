@@ -52,5 +52,6 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea
     echo " "
 done
 
+
 zsh
 #zsh $(source ~/.zshrc)

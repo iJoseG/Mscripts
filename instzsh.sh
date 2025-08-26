@@ -39,9 +39,10 @@ linea4='alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/
 
 linea5='alias ll="ls -la"'
 
+linea6='alias instpwl10k="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/powellebel10k.sh)"'
 
 # Agregar cada línea si no existe
-for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" ; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"
@@ -51,13 +52,5 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" ; do
     echo " "
 done
 
-echo "Ejecute 'sudo pacman -S nerd-fonts' y cambie la fuente de su terminal"
-
 zsh
-
-sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
-
-source ~/.zshrc
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k 
-
 #zsh $(source ~/.zshrc)

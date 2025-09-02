@@ -12,11 +12,8 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
 sleep 1
 echo " "
 # Instalar paquetes base (descomenta si es necesario)
-# sudo pacman -Syu
-# pacman -S git zsh nano vim less curl
-
-# Actualizar e instalar Zsh
-# sudo pacman -S --noconfirm zsh git curl
+pacman -Syu
+pacman -S --needed --noconfirm git zsh nano vim less curl 
 
 chsh -s /bin/zsh
 
@@ -52,6 +49,7 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea
     echo " "
 done
 
+sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
 zsh
 #zsh $(source ~/.zshrc)

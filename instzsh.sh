@@ -49,7 +49,7 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea
     echo " "
 done
 
-sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
+#sed -i 's|^ZSH_THEME=.*|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
 zsh
 #zsh $(source ~/.zshrc)

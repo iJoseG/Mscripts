@@ -12,8 +12,8 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o ="
 sleep 1
 echo " "
 # Instalar paquetes base (descomenta si es necesario)
-pacman -Syu
-pacman -S --needed --noconfirm git zsh nano vim less curl 
+#pacman -Syu
+#pacman -S --needed --noconfirm git zsh nano vim less curl 
 
 chsh -s /bin/zsh
 

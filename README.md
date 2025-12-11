@@ -23,11 +23,12 @@ Puedes ejecutarlo directamente desde la terminal de Arch con:
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzsh.sh)
 ```
-Puedes ejecutarlo directamente desde la terminal de Debian, Ubuntu, Linux Mint con:
+Instalar una version actualzada con y mejorada con la shell de Starship:
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instshub.sh)
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzshstarship.sh)
 ```
+Visita https://starship.rs/presets/ para encontrar distintos presets.
 
 ## 📥 Para actualizar tu repositorio
 

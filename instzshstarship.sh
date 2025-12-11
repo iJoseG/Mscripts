@@ -13,7 +13,7 @@ sleep 1
 echo " "
 # Instalar paquetes base (descomenta si es necesario)
 #pacman -Syu
-pacman -S --needed --noconfirm git zsh nano vim less curl eza
+sudo pacman -S --needed --noconfirm git zsh nano vim less curl eza
 
 #chsh -s /bin/zsh
 

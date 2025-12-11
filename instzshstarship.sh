@@ -41,6 +41,8 @@ linea6="alias ll='eza -l --icons --color=auto --group-directories-first'"
 linea7="alias la='eza -la --icons --color=auto --group-directories-first'"
 linea8="alias lt='eza --tree --icons --color=auto --group-directories-first'"
 linea9='eval "$(starship init zsh)"'
+linea10=' '
+linea10='by JoseG'
 
 # Agregar cada línea si no existe
 echo " "

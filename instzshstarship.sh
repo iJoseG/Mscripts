@@ -11,11 +11,32 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = "
 
 sleep 1
 echo " "
-# Instalar paquetes base (descomenta si es necesario)
+# Instalar paquetes base
 #pacman -Syu
 sudo pacman -S --needed --noconfirm git zsh nano vim less curl eza
 
 #chsh -s /bin/zsh
+# Instalacion de JetBrainsMono Nerd Font
+# Directorio de instalación para el usuario
+FONT_DIR="$HOME/.local/share/fonts"
+mkdir -p "$FONT_DIR"
+
+# Versión actual de Nerd Fonts (puedes cambiarla si lo deseas)
+VERSION="v3.2.1"
+ZIP="JetBrainsMono.zip"
+URL="https://github.com/ryanoasis/nerd-fonts/releases/download/$VERSION/$ZIP"
+
+echo "Descargando JetBrainsMono Nerd Font..."
+wget -q --show-progress "$URL" -O /tmp/$ZIP
+
+echo "Extrayendo fuentes..."
+unzip -o /tmp/$ZIP -d "$FONT_DIR" > /dev/null
+
+echo "Actualizando caché de fuentes..."
+fc-cache -fv > /dev/null
+
+echo "✔ JetBrainsMono Nerd Font está listo."
+
 
 echo " "
 
@@ -61,7 +82,7 @@ echo " "
 
 sed -i 's|^ZSH_THEME=.*|# ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
-starship preset pastel-powerline -o /home/jguerra/.config/starship.toml
+starship preset catppuccin-powerline -o ~/.config/starship.toml
 
 
 

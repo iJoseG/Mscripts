@@ -12,16 +12,14 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = "
 sleep 1
 echo " "
 # Instalar paquetes base
-#pacman -Syu
-sudo pacman -S --needed --noconfirm git zsh nano vim less curl eza
+sudo pacman -S --needed --noconfirm git zsh nano curl eza
 
-#chsh -s /bin/zsh
 # Instalacion de JetBrainsMono Nerd Font
 # Directorio de instalación para el usuario
 FONT_DIR="$HOME/.local/share/fonts"
 mkdir -p "$FONT_DIR"
 
-# Versión actual de Nerd Fonts (puedes cambiarla si lo deseas)
+# Versión actual de Nerd Fonts
 VERSION="v3.2.1"
 ZIP="JetBrainsMono.zip"
 URL="https://github.com/ryanoasis/nerd-fonts/releases/download/$VERSION/$ZIP"
@@ -40,14 +38,18 @@ echo "✔ JetBrainsMono Nerd Font está listo."
 
 echo " "
 
+echo "Instalando OhMyZsh..."
 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo " "
+echo "Instalando Starship..."
 curl -sS https://starship.rs/install.sh | sh
 echo " "
 
 echo " "
+echo "Instalando herramientas de zsh..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+echo " "
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 echo " "
 
@@ -68,6 +70,7 @@ linea10='# by JoseG'
 # Agregar cada línea si no existe
 echo " "
 echo " "
+echo "Agregando herramientas a .zshrc ..."
 for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6" "$linea7"  "$linea8"  "$linea9" "$linea10"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
@@ -75,14 +78,25 @@ for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea
     else
         echo "Ya existía: $linea"
     fi
-    echo " "
 done
 echo " "
 echo " "
 
 sed -i 's|^ZSH_THEME=.*|# ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
+echo "Estableciendo preset de starship: catppuccin-powerline..."
 starship preset catppuccin-powerline -o ~/.config/starship.toml
+
+echo " "
+echo " "
+echo " "
+echo "= o = o = o = o = o = o = o = o = o = o = o = o ="
+echo " "
+echo " "
+echo "      Instalacion Finalizada ...by jguerra           "
+echo " "
+echo " "
+echo "= o = o = o = o = o = o = o = o = o = o = o = o ="
 
 
 

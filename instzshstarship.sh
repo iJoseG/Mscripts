@@ -65,13 +65,13 @@ linea7="alias la='eza -la --icons --color=auto --group-directories-first'"
 linea8="alias lt='eza --tree --icons --color=auto --group-directories-first'"
 linea9='eval "$(starship init zsh)"'
 linea10=' '
-linea10='# by JoseG'
+linea11='# by JoseG'
 
 # Agregar cada línea si no existe
 echo " "
 echo " "
 echo "Agregando herramientas a .zshrc ..."
-for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6" "$linea7"  "$linea8"  "$linea9" "$linea10"; do
+for linea in "$linea0" "$linea1" "$linea2" "$linea3" "$linea4" "$linea5" "$linea6" "$linea7"  "$linea8"  "$linea9" "$linea10" "$linea11"; do
     if ! grep -Fxq "$linea" ~/.zshrc; then
         echo "$linea" >> ~/.zshrc
         echo "Agregado: $linea"

@@ -2,16 +2,25 @@
 
 set -e
 
+LOGFILE="$HOME/matlab_install_errors.log"
+
+if [[ -d "$HOME/matlab/R2025a" ]]; then
+  echo " "
+  echo "⚠ MATLAB R2025a ya está instalado"
+  exit 0
+fi
+
+
 echo " "
 echo "Se requieren permisos de superusuario..."
 sudo -v
 
 spinner() {
-    local pid=$!
+    local pid=$1
     local delay=0.1
     local spinstr='|/-\'
 
-    while ps a | awk '{print $1}' | grep -q "$pid"; do
+    while ps -p "$pid" > /dev/null 2>&1; do
         local temp=${spinstr#?}
         printf " [%c]  " "$spinstr"
         spinstr=$temp${spinstr%"$temp"}
@@ -21,31 +30,40 @@ spinner() {
     printf "    \b\b\b\b"
 }
 
+run_with_spinner() {
+  "$@" >"$LOGFILE" 2>&1 &
+  pid=$!
+  spinner "$pid"
+  wait "$pid" || {
+    echo " "
+    echo "Error durante la ejecución de: $*"
+    echo "Revisa el log: $LOGFILE"
+    exit 1
+  }
+}
+
+
 echo " "
 echo "Instalando paquetes necesarios..."
-sudo apt install -y wget > /dev/null 2>&1 &
-spinner
+run_with_spinner sudo apt update
+run_with_spinner sudo apt install -y wget
 echo " ✔"
 
 cd "$HOME"
 
 echo " "
 echo "Descargando paquete mpm..."
-wget https://www.mathworks.com/mpm/glnxa64/mpm > /dev/null 2>&1 &
-spinner
+run_with_spinner wget https://www.mathworks.com/mpm/glnxa64/mpm
 echo " ✔"
 
 sudo chmod +x mpm
 
 echo " "
-echo "Instalando matlab R2025a..."
-./mpm install \
+echo "Descargando e instalando matlab R2025a..."
+run_with_spinner ./mpm install \
   --release=R2025a \
   --destination="$HOME/matlab/R2025a" \
-  --products \
-  MATLAB Simulink \
-  > /dev/null 2>&1 &
-spinner
+  --products MATLAB Simulink
 echo " ✔"
 
 echo " "
@@ -108,7 +126,7 @@ StartupNotify=true
 EOF
 
 # Permisos
-sudo chmod +x "$DESKTOP_FILE"
+chmod +x "$DESKTOP_FILE"
 echo " ✔"
 
 echo " "

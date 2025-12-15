@@ -1,0 +1,32 @@
+#!bin/bash
+
+echo "Instalando matlab R2025a..."
+./mpm install \
+  --release=R2025a \
+  --destination="$HOME/matlab/R2025a" \
+  --products \
+  MATLAB Simulink \
+  Control_System_Toolbox Signal_Processing_Toolbox DSP_System_Toolbox \
+  Image_Processing_Toolbox Computer_Vision_Toolbox \
+  Deep_Learning_Toolbox Reinforcement_Learning_Toolbox \
+  Statistics_and_Machine_Learning_Toolbox Optimization_Toolbox \
+  Global_Optimization_Toolbox Curve_Fitting_Toolbox \
+  Symbolic_Math_Toolbox Fuzzy_Logic_Toolbox \
+  Robust_Control_Toolbox System_Identification_Toolbox \
+  Model_Predictive_Control_Toolbox \
+  Robotics_System_Toolbox ROS_Toolbox Navigation_Toolbox \
+  Sensor_Fusion_and_Tracking_Toolbox Lidar_Toolbox UAV_Toolbox \
+  Simscape Simscape_Electrical \
+  Simscape_Driveline Simscape_Fluids Simscape_Multibody \
+  Stateflow Simulink_Coder Embedded_Coder \
+  Simulink_Control_Design Simulink_Design_Optimization \
+  Simulink_Test Simulink_Design_Verifier \
+  Simulink_Report_Generator MATLAB_Report_Generator \
+  Parallel_Computing_Toolbox MATLAB_Coder MATLAB_Compiler \
+  MATLAB_Compiler_SDK MATLAB_Test \
+  Image_Acquisition_Toolbox Instrument_Control_Toolbox \
+  Database_Toolbox \
+  Mapping_Toolbox Wavelet_Toolbox Text_Analytics_Toolbox \
+  Audio_Toolbox Communications_Toolbox RF_Toolbox Antenna_Toolbox \
+  WLAN_Toolbox LTE_Toolbox Bluetooth_Toolbox \
+  > /dev/null 2>&1 &

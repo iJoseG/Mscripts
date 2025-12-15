@@ -2,7 +2,7 @@
 
 sudo apt install wget xorg-xwayland
 
-wget  https://www.mathworks.com/mpm/glnxa64/mpm
+wget --show-progress https://www.mathworks.com/mpm/glnxa64/mpm
 
 sudo chmod +x mpm
 

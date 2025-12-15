@@ -2,6 +2,19 @@
 
 set -e
 
+VERSION="1.0.1"
+if [[ "$1" == "--version" ]]; then
+    echo " "
+    echo "instyay $VERSION"
+    exit 0
+fi
+
+echo " "
+if command -v yay >/dev/null; then
+    echo "✔ yay ya está instalado"
+    exit 0
+fi
+
 spinner() {
     local pid=$!
     local delay=0.1
@@ -17,12 +30,12 @@ spinner() {
     printf "    \b\b\b\b"
 }
 
-cd
+cd "$HOME"
 
 echo "Se requieren permisos de superusuario..."
 sudo -v
 
-# Mantener sudo activo (clave para evitar el bug visual)
+# Mantener sudo activo
 while true; do
     sudo -n true
     sleep 60
@@ -31,13 +44,13 @@ done 2>/dev/null &
 
 echo " "
 echo "Instalando paquetes necesarios..."
-sudo pacman -S --needed base-devel git > /dev/null &
+sudo pacman -S --needed --noconfirm base-devel git > /dev/null &
 spinner
 echo " ✔"
 
-
 echo " "
 echo "Clonando repositorio de yay..."
+sudo rm -rf yay
 git clone -q https://aur.archlinux.org/yay.git > /dev/null &
 spinner
 echo " ✔"

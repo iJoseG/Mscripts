@@ -2,6 +2,8 @@
 
 # Este script actualizará los archivos de tu repositorio en GitHub
 
+set -e
+
 # Colores ANSI
 RED="\033[1;31m"
 GREEN="\033[1;32m"

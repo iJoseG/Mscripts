@@ -16,25 +16,12 @@ sudo pacman -S --needed --noconfirm git zsh nano curl eza
 
 # Instalacion de JetBrainsMono Nerd Font
 # Directorio de instalación para el usuario
-FONT_DIR="$HOME/.local/share/fonts"
-mkdir -p "$FONT_DIR"
 
-# Versión actual de Nerd Fonts
-VERSION="v3.2.1"
-ZIP="JetBrainsMono.zip"
-URL="https://github.com/ryanoasis/nerd-fonts/releases/download/$VERSION/$ZIP"
-
-echo "Descargando JetBrainsMono Nerd Font..."
-wget -q --show-progress "$URL" -O /tmp/$ZIP
-
-echo "Extrayendo fuentes..."
-unzip -o /tmp/$ZIP -d "$FONT_DIR" > /dev/null
-
-echo "Actualizando caché de fuentes..."
-fc-cache -fv > /dev/null
+echo "Instalando JetBrainsMono Nerd Font..."
+sudo pacman -S --needed --noconfirm ttf-jetbrains-mono-nerd
+fc-cache -fv
 
 echo "✔ JetBrainsMono Nerd Font está listo."
-
 
 echo " "
 

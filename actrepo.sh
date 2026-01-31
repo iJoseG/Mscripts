@@ -46,7 +46,7 @@ fi
 # Si hay cambios sin subir, commits_pendientes > 0, si falla el comando,
 commits_pendientes=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
 
-if ! $hay_cambios_locales && [[ "$commits_pendientes" -eq 0 ]]; then
+if ! $hay_cambios_locales && [[ $commits_pendientes -eq 0 ]]; then
     echo -e "${GREEN}No hay cambios ni commits pendientes por subir. Saliendo...${RESET}\n"
     exit 0
 fi

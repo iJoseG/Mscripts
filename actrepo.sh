@@ -26,17 +26,7 @@ if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     exit 1
 fi
 
-#
-# Verificar si hay cambios por hacer
-#
-#if [[ -z $(git status --porcelain) ]]; then
-#    echo -e "${GREEN}No hay cambios por realizar. Saliendo... #${RESET}\n"
-#    exit 0
-#fi
-#
-
-# Verificar si hay cambios por hacer
-
+# Evaluar si hay cambios locales
 hay_cambios_locales=false
 if [[ -n $(git status --porcelain) ]]; then # Verifica si la salida de git status --porcelain no es vacia
     hay_cambios_locales=true
@@ -46,6 +36,10 @@ fi
 # Si hay cambios sin subir, commits_pendientes > 0, si falla el comando,
 commits_pendientes=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
 
+echo "cambioslocales: $hay_cambios_locales"
+echo "commintspendientes: $commits_pendientes"
+echo " "
+
 if ! $hay_cambios_locales && [[ $commits_pendientes -eq 0 ]]; then
     echo -e "${GREEN}No hay cambios ni commits pendientes por subir. Saliendo...${RESET}\n"
     exit 0
@@ -53,20 +47,25 @@ fi
 
 # Observar el estado del repositorio
 git status
+echo " "
 
 # Agregar los archivos modificados
 git add .
 
 # Recibir mensaje para ejecutar commit
-echo -e "${YELLOW}Digite mensaje descriptivo para commit${RESET}"
-read -rp ": " messss
-git commit -m "$messss"
+if $hay_cambios_locales; then
+    echo -e "${YELLOW}Digite mensaje descriptivo para commit${RESET}"
+    read -rp ": " messss
+    git commit -m "$messss"
+    echo " "
+    echo -e "${YELLOW}Actualizando Repositorios ${RESET}"
+fi 
 
-echo " "
-echo -e "${YELLOW}Actualizando Repositorios ${RESET}"
 # Obtenemos branch y publicamos cambios
+echo -e "${CYAN}Ingrese Credenciales:${RESET}"
 nrama="$(git branch --show-current)"
 git push origin "$nrama"
+echo " "
 
 echo -e "\n${GREEN}✔ Cambios subidos exitosamente a la rama '$nrama'.${RESET}"
 echo " "

@@ -26,9 +26,28 @@ if ! git rev-parse --is-inside-work-tree &>/dev/null; then
     exit 1
 fi
 
+#
 # Verificar si hay cambios por hacer
-if [[ -z $(git status --porcelain) ]]; then
-    echo -e "${GREEN}No hay cambios por realizar. Saliendo... ${RESET}\n"
+#
+#if [[ -z $(git status --porcelain) ]]; then
+#    echo -e "${GREEN}No hay cambios por realizar. Saliendo... #${RESET}\n"
+#    exit 0
+#fi
+#
+
+# Verificar si hay cambios por hacer
+
+hay_cambios_locales=false
+if [[ -n $(git status --porcelain) ]]; then # Verifica si la salida de git status --porcelain no es vacia
+    hay_cambios_locales=true
+fi
+
+# Evaluar si hay commits sin subir
+# Si hay cambios sin subir, commits_pendientes > 0, si falla el comando,
+commits_pendientes=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
+
+if ! $hay_cambios_locales && [[ "$commits_pendientes" -eq 0 ]]; then
+    echo -e "${GREEN}No hay cambios ni commits pendientes por subir. Saliendo...${RESET}\n"
     exit 0
 fi
 

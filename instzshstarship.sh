@@ -12,7 +12,7 @@ echo "= o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = "
 sleep 1
 echo " "
 # Instalar paquetes base
-sudo pacman -S --needed --noconfirm git zsh nano curl eza
+sudo pacman -S --needed --noconfirm git zsh nano curl eza fastfetch
 
 # Instalacion de JetBrainsMono Nerd Font
 # Directorio de instalación para el usuario
@@ -45,13 +45,13 @@ linea1="source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 linea2="source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 linea3='alias deit="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/datetoday.sh)"'
 linea4='alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"'
-#linea5='alias ll="ls -la"'
+
 linea5="alias ls='eza --icons --color=auto --group-directories-first'"
 linea6="alias ll='eza -l --icons --color=auto --group-directories-first'"
 linea7="alias la='eza -la --icons --color=auto --group-directories-first'"
 linea8="alias lt='eza --tree --icons --color=auto --group-directories-first'"
 linea9='eval "$(starship init zsh)"'
-linea10=' '
+linea10='fastfetch'
 linea11='# by JoseG'
 
 # Agregar cada línea si no existe

@@ -31,4 +31,9 @@ sudo sed -i 's/^#WaylandEnable=false/WaylandEnable=true/' /etc/gdm/custom.conf
 ### Enable GDM ###
 sudo systemctl enable gdm
 
+### Instalacion NoctaliaShell ###
 yay -S --needed --noconfirm quickshell brightnessctl git imagemagick python ddcutil cliphist cava wlsunset xdg-desktop-portal python3 evolution-data-server 
+mkdir -p ~/.config/quickshell/noctalia-shell && curl -sL https://github.com/noctalia-dev/noctalia-shell/releases/latest/download/noctalia-latest.tar.gz | tar -xz --strip-components=1 -C ~/.config/quickshell/noctalia-shell
+
+
+

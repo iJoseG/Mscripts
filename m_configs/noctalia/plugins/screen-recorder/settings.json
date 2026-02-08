@@ -1,0 +1,15 @@
+{
+  "hideInactive": false,
+  "directory": "",
+  "filenamePattern": "recording_yyyyMMdd_HHmmss",
+  "frameRate": "60",
+  "audioCodec": "opus",
+  "videoCodec": "h264",
+  "quality": "very_high",
+  "colorRange": "limited",
+  "showCursor": true,
+  "copyToClipboard": false,
+  "audioSource": "default_input",
+  "videoSource": "portal",
+  "resolution": "original"
+}

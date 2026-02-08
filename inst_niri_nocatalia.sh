@@ -35,6 +35,9 @@ bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/mai
 # Script para instalar configuraciones de niri
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_niri.sh)
 
+# Script para instalar personalizacion de la shell de zsh con starship-shell
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzshstarship.sh)
+
 #### WaylandEnable=true 
 #### en /etc/gdm/custom.conf
 ### Enable Wayland in GDM ###
@@ -46,6 +49,5 @@ sudo systemctl enable gdm
 ### Instalacion NoctaliaShell ###
 yay -S --needed --noconfirm quickshell brightnessctl git imagemagick python ddcutil cliphist cava wlsunset xdg-desktop-portal python3 evolution-data-server 
 mkdir -p ~/.config/quickshell/noctalia-shell && curl -sL https://github.com/noctalia-dev/noctalia-shell/releases/latest/download/noctalia-latest.tar.gz | tar -xz --strip-components=1 -C ~/.config/quickshell/noctalia-shell
-
 
 

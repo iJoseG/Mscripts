@@ -23,6 +23,18 @@ gdm alacritty git curl
 # Script para instalar yay
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instyay.sh)
 
+# Script para instalar configuraciones de alacritty
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_alacritty.sh)
+
+# Script para instalar personalizacion de fastfetch
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_fastfetch.sh)
+
+# Script para instalar personalizacion de nvim
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_nvim.sh)
+
+# Script para instalar configuraciones de niri
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_niri.sh)
+
 #### WaylandEnable=true 
 #### en /etc/gdm/custom.conf
 ### Enable Wayland in GDM ###

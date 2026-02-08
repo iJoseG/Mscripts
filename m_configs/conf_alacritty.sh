@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo pacman -S --needed --noconfirm ttf-jetbrains-mono-nerd
+fc-cache -fv
+
 mkdir -p ~/.config/alacritty
 
 cat << 'EOF' > ~/.config/alacritty/alacritty.toml

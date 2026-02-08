@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/.config/niri
+
 cat << 'EOF' > ~/.config/niri/config.kdl
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.

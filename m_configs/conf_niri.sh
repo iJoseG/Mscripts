@@ -3,17 +3,15 @@
 mkdir -p ~/.config/niri
 
 cat << 'EOF' > ~/.config/niri/config.kdl
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
+// Configuración en formato KDL (https://kdl.dev)
+// "/-" comenta el nodo siguiente.
+// Documentación completa en la wiki oficial de Niri.
 
 prefer-no-csd
 
+// Configuración de dispositivos de entrada (ver wiki para opciones completas).
+// https://yalter.github.io/niri/Configuration:-Input
 input {
 
     // niri-settings
@@ -21,23 +19,24 @@ input {
     // focus-follows-mouse
     // disable-power-key-handling
     // workspace-auto-back-and-forth
+
     mod-key "super"
 
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
+            // Configuración avanzada de teclado (layout, modelo, variantes).
             // For more information, see xkeyboard-config(7).
 
             // For example:
             // layout "us,latam"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
+            // Si esta seccion está vacía, Niri usa la configuración del sistema (localectl).
+            // from org.freedesktop.locale1. Puedes controlarlo usando:
             // localectl set-x11-keymap.
         }
 
-        // Enable numlock on startup, omitting this setting disables it.
+        // Activa NumLock al iniciar.
         numlock
 
         // niri-settings
@@ -47,21 +46,10 @@ input {
     }
 
     // Next sections include libinput settings.
+    // Configuración del touchpad usando libinput.
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        // off
-        ///tap estaba activo
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
-        ///natural-scroll estaba activo
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
-        
         // niri-settings
         tap
         // dwt
@@ -69,8 +57,6 @@ input {
         natural-scroll
         drag true
         // drag-lock
-        // disabled-on-external-mouse
-        // left-handed
         click-method "button-areas"
         scroll-method "two-finger"
         accel-speed 0.20
@@ -81,11 +67,6 @@ input {
     }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
         accel-speed 0.20
         accel-profile "flat"
         scroll-factor 1.2
@@ -105,7 +86,7 @@ input {
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
-    // Focus windows and outputs automatically when moving the mouse into them.
+    // Cambia el foco automáticamente al mover el mouse sobre una ventana.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse
 }
@@ -117,13 +98,10 @@ input {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    // Uncomment this line to disable this output.
-    // off
-
-   mode "1366x768@60.003"
-
+    mode "1366x768@1"
+    
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
+    scale 1.0
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -141,35 +119,27 @@ output "eDP-1" {
     position x=0 y=0
 }
 
-// Settings that influence how windows are positioned and sized.
+// Configuración de distribución y tamaño de ventanas.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
     // gaps 16
-    
-
-    // niri-settings
-    gaps 12
+    gaps 14
     default-column-display "tabbed"
 
     // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
+    // - "never", default behavior, focusing an off-screen column will keep at the left or right edge of the screen.
     // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
-    center-focused-column "never"
+    // - "on-overflow", focusing a column will center it if it doesn't fit together with the previously focused column.
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
-       proportion 0.33333
+        proportion 0.33333
         proportion 0.5
         proportion 0.66667
         proportion 0.8
-
-        // Fixed sets the width in logical pixels exactly.
-        // fixed 1920
     }
     
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
@@ -191,10 +161,10 @@ layout {
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+        // - CSS-like notation: "rgb(255, 0, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#999999"
+        active-color "#a8a8a8"
 
         // Color of the ring on inactive monitors.
         //
@@ -209,13 +179,13 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+         active-gradient from="#00e5ff" to="#bf00ff" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        inactive-gradient from="#00e5ff" to="#bf00ff" angle=45
+        // inactive-gradient from="#00e5ff" to="#bf00ff" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -233,16 +203,14 @@ layout {
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
-        //
         // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        on
+        //on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -319,7 +287,7 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+     skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -343,15 +311,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
     // Uncomment to turn off all animations.
     // off
-    
-    
+    on
+
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-
-    // niri-settings
-    on 
     slowdown 1.0
-
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -360,7 +323,7 @@ animations {
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
-window-rule {
+/-window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -377,30 +340,29 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="zen"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="org.gnome.Calculator"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+
+    default-column-width {
+        proportion 0.66667
+    }
+}
+
 // niri-settings
 window-rule {
     geometry-corner-radius 6
     clip-to-geometry true
     draw-border-with-background false
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
 }
 
 binds {
@@ -416,9 +378,6 @@ binds {
     Mod+Z hotkey-overlay-title="Open a Browser: Zen Browser" {spawn "zen-browser"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" {spawn "alacritty"; }
     Super+E { spawn "nautilus"; }
-
-
-
 
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -457,10 +416,6 @@ binds {
     // This will work with any MPRIS-enabled media player.
     // XF86AudioPlay { spawn-sh "playerctl play-pause"; }
     // XF86AudioPause { spawn-sh "playerctl play-pause"; }
-    //XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    //XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    //XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    //XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
     // Audio controls
     XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
     XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
@@ -480,7 +435,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -707,5 +662,4 @@ binds {
 }
 
 // JOSEGUERRA
-
 EOF

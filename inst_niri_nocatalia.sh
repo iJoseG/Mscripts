@@ -18,7 +18,7 @@ niri xdg-desktop-portal-gnome \
 wayland wayland-protocols xorg-xwayland \
 pipewire wireplumber polkit-gnome wl-clipboard cliphist rofi \
 xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
-gdm alacritty git curl 
+gdm alacritty git curl playerctl
 
 # Script para instalar yay
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instyay.sh)

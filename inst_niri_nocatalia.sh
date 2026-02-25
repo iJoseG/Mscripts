@@ -15,7 +15,7 @@ fi
 ### Instalacion de paquetes #
 sudo pacman -S --needed --noconfirm \
 niri xdg-desktop-portal-gnome \
-wayland wayland-protocols xorg-xwayland \
+wayland wayland-protocols xorg-xwayland xwayland-satellite\
 pipewire wireplumber polkit-gnome wl-clipboard cliphist rofi \
 xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
 gdm alacritty git curl playerctl
@@ -36,7 +36,7 @@ bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/mai
 bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/m_configs/conf_niri.sh)
 
 # Script para instalar personalizacion de la shell de zsh con starship-shell
-bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/instzshstarship.sh)
+bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/inst_zsh_star_opti.sh)
 
 #### WaylandEnable=true 
 #### en /etc/gdm/custom.conf

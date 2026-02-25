@@ -3,12 +3,21 @@
 mkdir -p ~/.config/niri
 
 cat << 'EOF' > ~/.config/niri/config.kdl
-
 // Configuración en formato KDL (https://kdl.dev)
 // "/-" comenta el nodo siguiente.
 // Documentación completa en la wiki oficial de Niri.
 
 prefer-no-csd
+
+spawn-at-startup "xwayland-satellite"
+// Or, if you built it by hand:
+// spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
+
+environment {
+    DISPLAY ":0"
+}
+
+spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell"
 
 // Configuración de dispositivos de entrada (ver wiki para opciones completas).
 // https://yalter.github.io/niri/Configuration:-Input
@@ -99,7 +108,7 @@ input {
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     mode "1366x768@1"
-    
+
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.0
 
@@ -132,7 +141,7 @@ layout {
     // - "never", default behavior, focusing an off-screen column will keep at the left or right edge of the screen.
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit together with the previously focused column.
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -141,7 +150,7 @@ layout {
         proportion 0.66667
         proportion 0.8
     }
-    
+
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
 
@@ -278,7 +287,7 @@ layout {
 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell"
+
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
@@ -342,6 +351,11 @@ window-rule {
 
 window-rule {
     match app-id="zen"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="steam"
     open-maximized true
 }
 
@@ -662,4 +676,6 @@ binds {
 }
 
 // JOSEGUERRA
+
+
 EOF

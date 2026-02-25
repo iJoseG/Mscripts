@@ -12,7 +12,7 @@ cat << 'EOF' > ~/.config/alacritty/alacritty.toml
 import = ["~/.config/alacritty/themes/noctalia.toml"]
 
 [font]
-size = 12
+size = 10
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -26,7 +26,7 @@ thickness = 0.15
 
 [window]
 opacity = 0.8
-decorations = "None"
+#decorations = "None"
 
 [window.padding]
 x = 10

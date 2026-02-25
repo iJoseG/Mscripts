@@ -113,7 +113,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Syntax highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+starship preset jetpack -o ~/.config/starship.toml
 
 # z navigation
 source ~/.zsh/z/z.sh
@@ -131,6 +131,8 @@ echo " "
 
 echo "Estableciendo preset de starship: catppuccin-powerline..."
 starship preset catppuccin-powerline -o ~/.config/starship.toml
+
+chsh -s /bin/zsh
 
 echo " "
 echo " "

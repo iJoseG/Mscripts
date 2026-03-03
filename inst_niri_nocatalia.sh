@@ -15,7 +15,8 @@ fi
 ### Instalacion de paquetes #
 sudo pacman -S --needed --noconfirm \
 niri xdg-desktop-portal-gnome \
-wayland wayland-protocols xorg-xwayland xwayland-satellite\
+nautilus eog showtime gnome-disk-utility eyedropper \
+wayland wayland-protocols xorg-xwayland xwayland-satellite \
 pipewire wireplumber polkit-gnome wl-clipboard cliphist rofi \
 xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
 gdm alacritty git curl playerctl

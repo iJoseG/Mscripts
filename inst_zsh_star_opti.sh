@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo " "
 echo "= o = o = o = o = o = o = o = o = o = o = o = o = o = o = o = o "
 echo " "
@@ -25,7 +27,9 @@ echo " "
 
 echo " "
 echo "Instalando Starship..."
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh -o install.sh
+sh install.sh -y
+rm install.sh
 echo " "
 
 echo " "
@@ -113,10 +117,30 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Syntax highlighting
-starship preset jetpack -o ~/.config/starship.toml
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # z navigation
 source ~/.zsh/z/z.sh
+
+# =====================================
+# KEYBINDINGS
+# =====================================
+
+stty -ixon
+
+# 
+bindkey '^Q' kill-whole-line
+
+# Limpiar solo desde cursor hacia el inicio
+bindkey '^U' backward-kill-line
+
+# Limpiar desde cursor hasta el final
+bindkey '^K' kill-line
+
+# Navegar por palabras
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
 
 # =====================================
 # FASTFETCH SOLO INTERACTIVO
@@ -130,12 +154,14 @@ EOF
 echo " "
 
 echo "Estableciendo preset de starship: catppuccin-powerline..."
-starship preset catppuccin-powerline -o ~/.config/starship.toml
+mkdir -p ~/.config
+starship preset jetpack -o ~/.config/starship.toml
 
 chsh -s /bin/zsh
 
 echo " "
 echo " "
+echo "Reinicia la sesión o ejecuta: exec zsh"
 echo " "
 echo "= o = o = o = o = o = o = o = o = o = o = o = o ="
 echo " "
@@ -145,4 +171,3 @@ echo " "
 echo " "
 echo "= o = o = o = o = o = o = o = o = o = o = o = o ="
 
-zsh

@@ -48,6 +48,7 @@ echo " "
 
 cat << 'EOF' > ~/.zshrc
 
+
 # =====================================
 # HISTORIAL
 # =====================================
@@ -78,6 +79,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*'
 setopt AUTO_MENU
 setopt COMPLETE_IN_WORD
 setopt ALWAYS_TO_END
+
+# Navegar entre opciones de autocompletado
+# Menú de selección visual y colores
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+
 
 #zmodload zsh/zprof
 
@@ -122,6 +132,11 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # z navigation
 source ~/.zsh/z/z.sh
 
+# Configuración avanzada de autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+
 # =====================================
 # KEYBINDINGS
 # =====================================
@@ -141,12 +156,18 @@ bindkey '^K' kill-line
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
+# Borrar palabra completa
+bindkey '^H' backward-kill-word
 
 # =====================================
 # FASTFETCH SOLO INTERACTIVO
 # =====================================
 
 [[ $- == *i* ]] && fastfetch
+
+
+# Ctrl + T -> Busqueda de archivos
+# Ctrl + R -> Busqueda en el historial de comandos
 
 # by JoseG
 EOF

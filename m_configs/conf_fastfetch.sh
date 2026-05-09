@@ -38,15 +38,9 @@ cat << 'EOF' > ~/.config/fastfetch/config.jsonc
             "keyColor": "33",
         },
         {
-            "type": "host",
-            "format": "{5} {1}",
-            "key": "host  ",
-            "keyColor": "33",
-        },
-        {
             "type": "packages",
             "key": "pkgs  ",
-            "keyColor": "33",  
+            "keyColor": "33",
         },
         {
             "type": "uptime",
@@ -57,6 +51,18 @@ cat << 'EOF' > ~/.config/fastfetch/config.jsonc
         {
             "type": "memory",
             "key": "memory",
+            "keyColor": "33",
+        },
+        {
+            "type": "disk",
+            "key": "disk  ",
+            "keyColor": "33"
+        },
+        {
+            "type": "command",
+            "key": "os age",
+            //"keyColor": "magenta",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
             "keyColor": "33",
         },
         "break",

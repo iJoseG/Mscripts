@@ -1,7 +1,25 @@
 # 🛠️ Mscripts - Utilidades y Automatización
 
 Bienvenido a **Mscripts**, una colección de scripts en Bash diseñados para optimizar el flujo de trabajo en sistemas Linux (especialmente Arch Linux y Ubuntu), facilitando tareas de instalación, monitoreo y organización de archivos.
+---
+## 📚 Tabla de Contenido
 
+- [📜 Descripción de los Scripts](#-descripción-de-los-scripts)
+  - [🔄 actrepo.sh](#1--actreposh)
+  - [📅 datetoday.sh](#2--datetodaysh)
+  - [🔍 detectar_gpu.sh](#3--detectar_gpush)
+  - [📊 estati.sh](#4--estatish)
+  - [🌐 instPaketTracer822.sh](#5--instpakettracer822sh)
+  - [📐 inst_matlab_ubuntu.sh](#6--inst_matlab_ubuntush)
+  - [🖥️ inst_niri_nocatalia.sh](#7-️-inst_niri_nocataliash)
+  - [⌨️ inst_openrazer.sh](#8-️-inst_openrazersh)
+  - [🐚 inst_zsh_star_opti.sh](#9--inst_zsh_star_optish)
+  - [📦 instyay.sh](#10--instyaysh)
+  - [🛡️ instzsh.sh e instzshstarship.sh](#11-️-instzshsh-y-instzshstarshipsh)
+  - [📂 organizar_descargas.sh](#12--organizar_descargassh)
+  - [🖼️ renombrar_imagenes.sh](#13-️-renombrar_imagenessh)
+- [🛠️ Subdirectorios Especiales](#️-subdirectorios-especiales)
+- [🚀 Cómo usar los scripts](#-cómo-usar-los-scripts)
 ---
 
 ## 📜 Descripción de los Scripts

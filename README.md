@@ -21,10 +21,17 @@ alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts
 ```
 
 #### Configurar como alias dentro de la configuracion de tu Shell (fish)
-***Para Fish*** en ```~/.config/fish/config.fish``` agregar esta linea:
+***Para Fish*** en ```~/.config/fish/config.fish``` agregar la siguiente funcion:
 ```
-alias actrepo="bash (curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh | psub)"
+function actrepo
+    bash (curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh | psub) $argv
+end
 ```
+Y luego ejecutar esta linea dentro de la terminal para guardar la función en: `~/.config/fish/functions/actrepo.fish`
+```bash
+funcsave actrepo
+```
+
 > Para tener acceso directo al script publicado en el repositorio ejecutandolo con un simple comando desde la terminal
 
 

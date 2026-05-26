@@ -18,7 +18,7 @@ Bienvenido a **Mscripts**, una colección de scripts en Bash diseñados para opt
   - [🛡️ instzsh.sh e instzshstarship.sh](#11-️-instzshsh-y-instzshstarshipsh)
   - [📂 organizar_descargas.sh](#12--organizar_descargassh)
   - [🖼️ renombrar_imagenes.sh](#13-️-renombrar_imagenessh)
-- [🛠️ Subdirectorios Especiales](#️-subdirectorios-especiales)
+- [🛠️ Subdirectorios Especiales](#-Subdirectorios-Especiales)
 - [🚀 Cómo usar los scripts](#-cómo-usar-los-scripts)
 ---
 
@@ -154,7 +154,7 @@ sudo systemctl start organizar_descargas.service
 
 ---
 
-## � Subdirectorios Especiales
+## Subdirectorios Especiales
 
 ### 🛠️ `m_configs/`
 Contiene scripts para aplicar configuraciones personalizadas (dotfiles) de aplicaciones específicas:

@@ -14,6 +14,20 @@ A continuación se detalla el funcionamiento de cada uno de los scripts contenid
 - Ejecuta `git add .`, solicita un mensaje para el commit y realiza el `push` a la rama actual.
 - Útil para mantener al día tus proyectos rápidamente.
 
+#### Configurar como alias dentro de la configuracion de tu Shell (Bash, Zsh)
+**Para Bash** en ```~/.bashrc``` y **Para Zsh** en ```~/.zshrc``` agregar dentro de la seccion de aliases:
+```
+alias actrepo="bash <(curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh)"
+```
+
+#### Configurar como alias dentro de la configuracion de tu Shell (fish)
+***Para Fish*** en ```~/.config/fish/config.fish``` agregar esta linea:
+```
+alias actrepo="bash (curl -sL https://raw.githubusercontent.com/iJoseG/Mscripts/refs/heads/main/actrepo.sh | psub)"
+```
+> Para tener acceso directo al script publicado en el repositorio ejecutandolo con un simple comando desde la terminal
+
+
 ### 2. 📅 `datetoday.sh`
 **Propósito:** Muestra información rápida del día y el clima.
 - Presenta la fecha actual en formato extendido.
@@ -68,7 +82,7 @@ A continuación se detalla el funcionamiento de cada uno de los scripts contenid
 - Clasifica automáticamente los archivos en subcarpetas: *Imagenes, Videos, Documentos, Programacion, Audio, Comprimidos e Instaladores*.
 - Cuenta con lógica para evitar la sobreescritura si existen archivos con el mismo nombre.
 
-#### **Configurar el script como servicio para que se ejecute al iniciar el sistema:** 
+#### Configurar el script como servicio para que se ejecute al iniciar el sistema: 
 Para ello primero debemos crear el archivo `.service`:
 ```bash
 sudo nano /etc/systemd/system/organizar_descargas.service

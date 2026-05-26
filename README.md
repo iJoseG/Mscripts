@@ -68,6 +68,46 @@ A continuación se detalla el funcionamiento de cada uno de los scripts contenid
 - Clasifica automáticamente los archivos en subcarpetas: *Imagenes, Videos, Documentos, Programacion, Audio, Comprimidos e Instaladores*.
 - Cuenta con lógica para evitar la sobreescritura si existen archivos con el mismo nombre.
 
+#### **Configurar el script como servicio para que se ejecute al iniciar el sistema:** 
+Para ello primero debemos crear el archivo `.service`:
+```bash
+sudo nano /etc/systemd/system/organizar_descargas.service
+```
+
+Dentro del archivo colocamos esta configuracion:
+> **Nota:** Ruta absoluta del componente `ExecStart` es un ejemplo, ajustar a configuracion o ruta del script en su sistema
+
+```INI
+[Unit]
+Description=Organizar el directorio de Downloads
+
+[Service]
+Type=oneshot
+ExecStart=/home/jguerra/Documents/Mscripts/organizar_descargas.sh
+User=jguerra
+WorkingDirectory=/home/jguerra
+
+[Install]
+WantedBy=default.target
+```
+> Se especifica `Type=oneshot` debido a que se busca una ejecucion unica sin dejar activo el servicio innecesariamente
+
+Recargamos Systemnd:
+```bash
+sudo systemctl daemon-reload
+```
+
+Habilitamos el servicio:
+```bash
+sudo systemctl enable organizar_descargas.service
+```
+
+Listo! en tu siguiete inicio del sistema tu directorio de descargas estara organizado, o si quieres probar el servicio manualmente:
+```bash
+sudo systemctl start organizar_descargas.service
+```
+
+
 ### 13. 🖼️ `renombrar_imagenes.sh`
 **Propósito:** Renombramiento masivo de imágenes en un directorio.
 - Permite establecer un prefijo (ej: `vacaciones_`) y un número inicial.

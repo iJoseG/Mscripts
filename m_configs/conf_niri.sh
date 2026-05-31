@@ -3,18 +3,21 @@
 mkdir -p ~/.config/niri
 
 cat << 'EOF' > ~/.config/niri/config.kdl
+
 // Configuración en formato KDL (https://kdl.dev)
 // "/-" comenta el nodo siguiente.
 // Documentación completa en la wiki oficial de Niri.
 
 prefer-no-csd
 
-spawn-at-startup "xwayland-satellite"
+//spawn-at-startup "xwayland-satellite"
 // Or, if you built it by hand:
 // spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
 
 environment {
-    DISPLAY ":0"
+    // DISPLAY ":0"
+    XCURSOR_THEME "Breeze Dark"
+    XCURSOR_SIZE "18"
 }
 
 spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell"
@@ -37,9 +40,14 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,latam"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
+            layout "us,latam"
+            options "grp:win_space_toggle" //,compose:ralt,ctrl:nocaps"
+            
+            //grp:alt_shift_toggle  Alt + Shift
+            //grp:ctrl_shift_toggle	Ctrl + Shift
+            //grp:caps_toggle	    CapsLock
+            //grp:win_space_toggle	Super + Espacio
+            
             // Si esta seccion está vacía, Niri usa la configuración del sistema (localectl).
             // from org.freedesktop.locale1. Puedes controlarlo usando:
             // localectl set-x11-keymap.
@@ -49,7 +57,7 @@ input {
         numlock
 
         // niri-settings
-        track-layout "window"
+        track-layout "global"
         repeat-delay 600
         repeat-rate 25
     }
@@ -78,7 +86,7 @@ input {
     mouse {
         accel-speed 0.20
         accel-profile "flat"
-        scroll-factor 1.2
+        scroll-factor 1.0
     }
 
     trackpoint {
@@ -107,8 +115,8 @@ input {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    mode "1366x768@1"
-
+    mode "1920x1080@60.000"
+    
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.0
 
@@ -125,13 +133,23 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
+    position x=0 y=1080
+}
+
+output "HP Inc. HP P24 G5 3CM321146K" {
+    mode "1920x1080@74.973"
+    scale 1.0
+    transform "normal"
     position x=0 y=0
+
 }
 
 // Configuración de distribución y tamaño de ventanas.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
+	
+	
     // Set gaps around windows in logical pixels.
     // gaps 16
     gaps 14
@@ -150,7 +168,7 @@ layout {
         proportion 0.66667
         proportion 0.8
     }
-
+    
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
 
@@ -173,7 +191,7 @@ layout {
         // - CSS-like notation: "rgb(255, 0, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#a8a8a8"
+        active-color "hsl(321, 100%, 79%)"
 
         // Color of the ring on inactive monitors.
         //
@@ -188,7 +206,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-         active-gradient from="#00e5ff" to="#bf00ff" angle=45
+        //active-gradient from="#008cff" to="#bf00ff" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -293,7 +311,6 @@ spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
-
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
      skip-at-startup
@@ -313,6 +330,12 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
 
 // Animation settings.
 // The wiki explains how to configure individual animations:
@@ -352,6 +375,19 @@ window-rule {
 window-rule {
     match app-id="zen"
     open-maximized true
+    // Cambia la opacidad de la ventana activa e inactiva (0.90 es un gran punto de partida)
+    // opacity 0.90
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="^Alacritty$"
+
+    background-effect {
+        blur true
+    }
 }
 
 window-rule {
@@ -372,6 +408,48 @@ window-rule {
     }
 }
 
+window-rule {
+    match app-id="discord"
+    opacity 0.850
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="org.gnome.TextEditor"
+    opacity 0.80
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    opacity 0.80
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="steam"
+    opacity 0.80
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="nankill.xyz.glassymusic.mod"
+    opacity 0.70
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+
 // niri-settings
 window-rule {
     geometry-corner-radius 6
@@ -382,7 +460,7 @@ window-rule {
 binds {
 
     // Noctalia & Utils
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+D { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+I { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
     Mod+Slash { spawn "qs" "-c" "ii" "ipc" "call" "cheatsheet" "toggle"; }
@@ -409,8 +487,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -446,7 +524,8 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
+    // Open/close the 
+    // Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+A repeat=false { toggle-overview; }
@@ -533,8 +612,8 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
@@ -545,8 +624,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+WheelScrollDown      { focus-column-right; }
+    Mod+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
@@ -677,5 +756,7 @@ binds {
 
 // JOSEGUERRA
 
+
+include "./noctalia.kdl"
 
 EOF
